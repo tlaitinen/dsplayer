@@ -1,0 +1,22 @@
+package ds;
+
+message SetTemplate {
+    required int32 screen     = 1;
+    required string path      = 2;
+}
+
+message UpdateScreen {
+    required int32 screen     = 1;
+    required string container = 2;
+    required string path      = 3;
+}
+message Evaluate {
+    required int32 screen     = 1;
+    required string js        = 2;
+}
+
+message Request {
+    optional SetTemplate  set_template   = 1;
+    optional UpdateScreen update_screen  = 2;
+    optional Evaluate     evaluate       = 3;
+}

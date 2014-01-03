@@ -1,0 +1,6 @@
+include_directories(${libdsinterface_include} ${libutil_include})
+add_library(dsinterface src/dsserver.cpp src/dsclient.cpp src/ds.pb.cc)
+add_executable(dsclient testclient/testclient.cpp)
+target_link_libraries(dsinterface protobuf rt)
+target_link_libraries(dsclient dsinterface boost_program_options util-ar)
+install(TARGETS dsclient ${INSTALL_OPTS})    
